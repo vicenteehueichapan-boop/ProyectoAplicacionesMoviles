@@ -14,7 +14,7 @@ function AuthTemplate({ children }) {
             <AppLogo />
             <div className="auth-showcase__content">
               <p className="eyebrow">Comunidad gamer chilena</p>
-              <h1>Sube de nivel.<br />Juega a tu manera.</h1>
+              <p className="auth-showcase__title">Sube de nivel.<br />Juega a tu manera.</p>
               <p>Accede a tu catálogo, favoritos y beneficios de Level-Up Gamer.</p>
             </div>
             <span className="auth-showcase__decoration" aria-hidden="true">+</span>
@@ -24,7 +24,7 @@ function AuthTemplate({ children }) {
             <div className="auth-form-content">
               <AppLogo compact />
               <p className="eyebrow">Bienvenido de vuelta</p>
-              <h2>Inicia sesión</h2>
+              <h1>Inicia sesión</h1>
               <p className="auth-form-content__intro">Ingresa tus datos para continuar.</p>
               {children}
               <Link className="lifecycle-link" to="/ciclo-de-vida">Ver demostración del ciclo de vida</Link>

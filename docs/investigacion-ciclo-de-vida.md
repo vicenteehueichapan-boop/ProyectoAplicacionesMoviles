@@ -55,8 +55,14 @@ La limpieza se ejecuta al desmontar. Si el efecto tiene dependencias, también s
 5. Verificar que el título de la pestaña cambia.
 6. Volver al login y confirmar `temporizador limpiado al desmontar`.
 
+## Resultado de la prueba
+
+La prueba se realizó en un navegador real. Al abrir el login y la demostración se observó `el componente se montó`; al aumentar el contador cambió el título de la pestaña; y al abandonar la demostración se observó `temporizador limpiado al desmontar`.
+
+En desarrollo, `StrictMode` puede producir un ciclo adicional de montaje y limpieza. Es un comportamiento deliberado de React para detectar efectos incompletos, no un error del componente.
+
 ## Fuentes oficiales
 
-- React, referencia de `useEffect`: https://react.dev/reference/react/useEffect
-- React, sincronización con efectos: https://react.dev/learn/synchronizing-with-effects
-- React, ciclo de vida de los efectos reactivos: https://react.dev/learn/lifecycle-of-reactive-effects
+- [React: referencia de `useEffect`](https://react.dev/reference/react/useEffect)
+- [React: sincronización con efectos](https://react.dev/learn/synchronizing-with-effects)
+- [React: ciclo de vida de los efectos reactivos](https://react.dev/learn/lifecycle-of-reactive-effects)

@@ -6,9 +6,26 @@ import FormField from '../molecules/FormField.jsx';
 import LoginOptions from '../molecules/LoginOptions.jsx';
 
 const INITIAL_FIELDS = { email: '', password: '' };
+const EMAIL_STORAGE_KEY = 'levelUpGamer.email';
 
 function getStoredEmail() {
-  return localStorage.getItem('levelUpGamer.email') ?? '';
+  try {
+    return localStorage.getItem(EMAIL_STORAGE_KEY) ?? '';
+  } catch {
+    return '';
+  }
+}
+
+function updateStoredEmail(rememberEmail, email) {
+  try {
+    if (rememberEmail) {
+      localStorage.setItem(EMAIL_STORAGE_KEY, email);
+    } else {
+      localStorage.removeItem(EMAIL_STORAGE_KEY);
+    }
+  } catch {
+    // El formulario sigue funcionando si el navegador bloquea el almacenamiento.
+  }
 }
 
 function validate(fields) {
@@ -77,11 +94,8 @@ function LoginForm() {
     setAttempts((current) => current + 1);
     setErrors({});
 
-    if (rememberEmail) {
-      localStorage.setItem('levelUpGamer.email', fields.email.trim());
-    } else {
-      localStorage.removeItem('levelUpGamer.email');
-    }
+    updateStoredEmail(rememberEmail, fields.email.trim());
+    setFields((current) => ({ ...current, password: '' }));
 
     setMessage('Formulario validado. La autenticación real se conectará al backend en una etapa posterior.');
   }

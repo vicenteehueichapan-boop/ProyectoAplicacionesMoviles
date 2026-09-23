@@ -5,7 +5,6 @@ function LoginOptions({ checked, onChange }) {
   return (
     <div className="login-options mb-4">
       <Form.Check checked={checked} id="remember-access" label="Recordar mi correo" onChange={onChange} type="checkbox" />
-      <a href="mailto:soporte@levelupgamer.cl">¿Necesitas ayuda?</a>
     </div>
   );
 }
